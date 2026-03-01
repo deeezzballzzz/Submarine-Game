@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cdfo0i3mlh0k5"]
+
+[ext_resource type="Script" uid="uid://b7hgvttsidhjl" path="res://movement.gd" id="1_7o08m"]
+[ext_resource type="Texture2D" uid="uid://clk7ldc1a0x4j" path="res://Assets/content__1_-removebg-preview.webp" id="1_snd1y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o08m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_snd1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k15wb"]
+size = Vector2(156.5, 54)
+
+[node name="Node2D" type="Node2D" unique_id=1958718418]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=1615366822]
+script = ExtResource("1_7o08m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter" unique_id=1550079897]
+scale = Vector2(0.38545498, 0.38545495)
+sprite_frames = SubResource("SpriteFrames_7o08m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=831579834]
+shape = SubResource("RectangleShape2D_k15wb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=303375276]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="AnimatedSprite2D" unique_id=1993693994]

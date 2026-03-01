@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://cdfo0i3mlh0k5"]
+
+[ext_resource type="Script" uid="uid://b7hgvttsidhjl" path="res://Scripts/movement.gd" id="1_7o08m"]
+[ext_resource type="Texture2D" uid="uid://clk7ldc1a0x4j" path="res://Assets/content__1_-removebg-preview.webp" id="1_snd1y"]
+[ext_resource type="Texture2D" uid="uid://bq47qh4jxjef2" path="res://Assets/deactivatedCrystal-removebg-preview (1).png" id="3_4t2pl"]
+[ext_resource type="Texture2D" uid="uid://btqtjnwl4bbno" path="res://Assets/a247640a-f851-4384-b1c0-b86acf0c963c__2_-removebg-preview.webp" id="3_ybgqn"]
+[ext_resource type="Script" uid="uid://ckb4isoi3cn61" path="res://Scripts/checkIfConnected.gd" id="4_ybgqn"]
+[ext_resource type="Script" uid="uid://bfvlqnjda6n5" path="res://Scripts/beacon2CheckIfConnected.gd" id="6_ijlju"]
+[ext_resource type="Script" uid="uid://d221jsctv175" path="res://Scripts/beacon3Collision.gd" id="7_vdwas"]
+[ext_resource type="Script" uid="uid://d3gnyf3y56ct1" path="res://preventCollision.gd" id="8_b0yit"]
+[ext_resource type="Texture2D" uid="uid://cw4skpmtc2tk6" path="res://Assets/healthbarUnder.png" id="8_w4qqe"]
+[ext_resource type="Texture2D" uid="uid://7b2f37qf8128" path="res://Assets/healthbarProgress.png" id="9_d4m0j"]
+[ext_resource type="Script" uid="uid://ukxa87l71dsk" path="res://PreventHealthLoss.gd" id="9_i1cje"]
+[ext_resource type="Script" uid="uid://cwjq1c075w1fv" path="res://healthBarTexture.gd" id="10_w4qqe"]
+[ext_resource type="Texture2D" uid="uid://duo0jafnfav5m" path="res://Assets/health-removebg-preview.png" id="11_d4m0j"]
+[ext_resource type="Texture2D" uid="uid://booxc52egs7ap" path="res://Assets/oxygenBarProgress.png.png" id="14_66kf3"]
+[ext_resource type="Script" uid="uid://bbvrwg85u03cf" path="res://oxygen_bar.gd" id="15_aui1i"]
+[ext_resource type="Texture2D" uid="uid://cuxirqiftfv6" path="res://Assets/powerBar.png" id="16_gh3f3"]
+[ext_resource type="Texture2D" uid="uid://sg740q6pcej6" path="res://Assets/oxygenTank-removebg-preview.png" id="16_h52ud"]
+[ext_resource type="Script" uid="uid://b1s7qjc4mu0to" path="res://power_bar.gd" id="17_h52ud"]
+[ext_resource type="Texture2D" uid="uid://cyb5eaae4wp3y" path="res://Assets/istockphoto-1466294997-612x612-removebg-preview.png" id="19_usena"]
+[ext_resource type="PackedScene" uid="uid://crfdlmfwtxjki" path="res://Assets/pause_menu.tscn" id="20_e07w8"]
+[ext_resource type="Texture2D" uid="uid://olyxetmn7wyp" path="res://Assets/a247640a-f851-4384-b1c0-b86acf0c963c-removebg-preview__2_-removebg-preview.webp" id="20_e2420"]
+[ext_resource type="Script" uid="uid://cei3lf7u681jq" path="res://oxygen_pack.gd" id="21_gc1g1"]
+[ext_resource type="PackedScene" uid="uid://chsolregou7mf" path="res://Assets/win_screen.tscn" id="21_haldx"]
+[ext_resource type="Script" uid="uid://bx2evc6608btj" path="res://Assets/win_screen.gd" id="22_ci3db"]
+[ext_resource type="Texture2D" uid="uid://biqgtu4inaexl" path="res://Assets/a247640a-f851-4384-b1c0-b86acf0c963c-removebg-preview__1_-removebg-preview.webp" id="22_pvdr1"]
+[ext_resource type="Script" uid="uid://bwmtmvak5eb8f" path="res://power_pack_1.gd" id="23_e07w8"]
+[ext_resource type="Script" uid="uid://dc2yf2yugfv" path="res://winning_area.gd" id="25_e1m76"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o08m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_snd1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k15wb"]
+size = Vector2(156.5, 54)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7o08m"]
+load_path = "res://.godot/imported/SjD2HwAAAAZJREFUAwDBq0O9wzqDewAAAABJRU5ErkJggg.webp-4736a1d0279d18cd03d901fefbf39f11.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7o08m"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+angle_min = 6.100011
+angle_max = 98.40001
+inherit_velocity_ratio = -0.8
+direction = Vector3(0, -1000, 0)
+spread = 180.0
+initial_velocity_min = -9.059999
+initial_velocity_max = -9.059999
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(-50, -98, 0)
+scale_min = 0.01
+scale_max = 0.03
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijlju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4t2pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ybgqn")
+}],
+"loop": true,
+"name": &"beaconAppearance",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2aj80"]
+size = Vector2(153.96552, 185.00003)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vdwas"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc1g1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_e2420")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2420"]
+size = Vector2(62, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1m76"]
+size = Vector2(72, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk0ko"]
+size = Vector2(534, 109)
+
+[node name="Game" type="Node2D" unique_id=1958718418]
+metadata/_edit_horizontal_guides_ = [-62.0]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=1615366822]
+script = ExtResource("1_7o08m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter" unique_id=1550079897]
+scale = Vector2(0.38545498, 0.38545495)
+sprite_frames = SubResource("SpriteFrames_7o08m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=831579834]
+shape = SubResource("RectangleShape2D_k15wb")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerCharacter" unique_id=670168903]
+position = Vector2(-100, 0)
+amount = 15
+texture = SubResource("CompressedTexture2D_7o08m")
+process_material = SubResource("ParticleProcessMaterial_7o08m")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1788273109]
+
+[node name="OxygenTimer" type="Timer" parent="PlayerCharacter" unique_id=1948909307]
+autostart = true
+
+[node name="OneTimeTimer" type="Timer" parent="PlayerCharacter" unique_id=1964030594]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Beacon1Sprite" type="AnimatedSprite2D" parent="." unique_id=303375276]
+position = Vector2(2150, 1036.0001)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("4_ybgqn")
+
+[node name="Beacon1" type="Area2D" parent="Beacon1Sprite" unique_id=1212626556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon1Sprite/Beacon1" unique_id=684067380]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Beacon2Sprite" type="AnimatedSprite2D" parent="." unique_id=183671025]
+position = Vector2(2807, 3035)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("6_ijlju")
+
+[node name="Beacon2" type="Area2D" parent="Beacon2Sprite" unique_id=104780513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon2Sprite/Beacon2" unique_id=1869354589]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Beacon2Sprite3" type="AnimatedSprite2D" parent="." unique_id=470473006]
+position = Vector2(-3625.0002, 5912)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("7_vdwas")
+
+[node name="Beacon3" type="Area2D" parent="Beacon2Sprite3" unique_id=1272566570]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon2Sprite3/Beacon3" unique_id=10122960]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Walls" type="Node2D" parent="." unique_id=210509910]
+
+[node name="Surface" type="StaticBody2D" parent="Walls" unique_id=445662986]
+position = Vector2(0, -300)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Surface" unique_id=1096339655]
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_vdwas")
+
+[node name="Wall1" type="StaticBody2D" parent="Walls" unique_id=1366466241]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall1" unique_id=2080619014]
+polygon = PackedVector2Array(-536, -306, -484, -210, -508, -119, -449, 52, -471, 139, -463, 253, -424, 337, -232, 355, -210, 405, -192, 478, -165, 508, -104.75067, 523.53955, -81, 555, -86, 584, -165, 631, -189, 709, -184, 793, -125, 902, -176, 942, -78, 1176, 5, 1429, 17, 1597, -5, 1705, 85, 1756, 120, 1831, 83, 2097, 361, 2180, 409, 2210, 444, 2288, 356, 2313, 206, 2459, 78, 2549, -264, 2660, -613, 2604, -387, 2755, -302, 2788, -292, 2848, -359, 2855, -475, 2850, -776, 2903, -1258, 2758, -1588, 2725, -1932, 2782, -2135, 2898, -2391, 3086, -2642, 3312, -2823, 3624, -2645, 3887, -2404, 4018, -2113, 4281, -1924, 4515, -1834.5535, 4643.42, -1784, 4716, -1806, 4773, -1849, 4811, -1972, 4798, -2298, 4695, -2595, 4545, -2863, 4567, -2914, 4713, -2539, 4974, -2253, 5047, -2207, 5110, -2296, 5145, -1786, 5436, -1665, 5521, -1620, 5632, -1705, 5712, -2386, 5843, -2629, 5762, -2958, 5641, -3289, 5609, -3741, 5616, -3731, 5953, -3523, 5983, -3375, 6033, -3447, 6156, -3573, 6299, -3737, 6362, -3917, 6377, -3962, 6505, -4095, 6520, -4173.1167, 6490.486, -4303, 6412, -4577, 6196, -4692, 6134, -4868, 6056, -5106, 6156, -5242, 6417, -5365, 7093, -5056, 7407, -4710, 7384, -4441, 7116, -4795, 6932, -4594, 6794, -4418, 6784, -4356, 6867, -3823, 6905, -3312, 7976, -4999, 8339, -6606, 8118, -6866, 6747, -6171, 5476, -6338, 5242, -6535, 4850, -6189, 3761, -5353, 3083, -4029, 1953, -3856, 1268, -3746, 826, -4077, 448, -2792, 78, -2012, -277, -1141, -326)
+
+[node name="Area2D" type="Area2D" parent="Walls/Wall1" unique_id=1466264258]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall1/Area2D" unique_id=1653369879]
+polygon = PackedVector2Array(-531, -309, -480, -210, -503, -120, -444, 51, -467, 141, -459, 251, -422, 331, -231, 351, -206, 401, -187, 475, -160, 505, -102, 522, -77, 553, -82, 586, -162, 633, -184, 711, -182, 791, -121, 901, -171, 943, -75, 1174, 10, 1428, 21, 1596, 0, 1706, 85, 1750, 122, 1829, 88, 2094, 365, 2175, 412, 2207, 450, 2290, 357, 2316, 212, 2461, 80, 2554, -261, 2664, -605, 2608, -385, 2752, -301, 2786, -287, 2851, -358, 2859, -475, 2854, -778, 2907, -1261, 2761, -1589, 2728, -1929, 2784, -2133, 2900, -2388, 3088, -2638, 3316, -2818, 3624, -2643, 3883, -2401, 4014, -2110, 4278, -1919, 4515, -1829, 4642, -1780, 4717, -1801, 4776, -1850, 4815, -1974, 4801, -2300, 4698, -2595, 4548, -2860, 4569, -2911, 4712, -2538, 4971, -2250, 5044, -2202, 5111, -2288, 5145, -1783, 5432, -1664, 5518, -1615, 5634, -1704, 5719, -2387, 5847, -2629, 5768, -2958, 5646, -3285, 5613, -3737, 5618, -3729, 5948, -3521, 5979, -3369, 6032, -3441, 6157, -3565, 6301, -3732, 6366, -3913, 6382, -3959, 6508, -4099, 6523, -4178, 6495, -4306, 6418, -4581, 6201, -4693, 6140, -4867, 6060, -5101, 6160, -5236, 6416, -5358, 7090, -5052, 7400, -4711, 7378, -4451, 7118, -4801, 6930, -4598, 6789, -4415, 6780, -4351, 6862, -3830, 6896, -3312, 7976, -4999, 8339, -6606, 8118, -6866, 6747, -6171, 5476, -6338, 5242, -6535, 4850, -6189, 3761, -5353, 3083, -4029, 1953, -3856, 1268, -3746, 826, -4077, 448, -2792, 78, -2012, -277, -1141, -326)
+script = ExtResource("8_b0yit")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=860132333]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D" unique_id=2096544936]
+polygon = PackedVector2Array(377, -291, 852, -322, 1131, -326, 1760, -193, 2120, -292, 4832, -368, 4692, 64, 4552, 553, 4427, 888, 5097, 1307, 6730, 1684, 6563, 3149, 6464, 3381, 5948, 4037, 5766, 5419, 5697, 6452, 5124, 7485, 3351, 8364, 2374, 8643, -467, 7132, -1456, 7287, -3337, 7936, -3836, 6896, -3281, 6987, -2179, 6993, -1921, 6778, -1825, 6554, -1564, 6381, -952, 5884, -766, 5161, -397, 5178, 16, 5269, 436, 5221, 904, 5339, 1290, 5349, 1461, 5520, 1627, 5738, 1928, 5921, 2217, 5881, 2475, 5768, 2556, 5434, 2561, 5221, 2433, 5108, 2099, 5003, 1755, 5036, 1511, 5111, 1303, 5116, 916, 5109, 367, 5033, -105, 5013, -564, 4913, -999, 4740, -999, 4569, -959, 4419, -828, 4191, -964, 3967, -923, 3711, -778, 3405, -552, 3270, -123, 3250, -90, 3155, 51, 3130, 161, 3187, 241, 3331, 447, 3348, 595, 3303, 906, 3338, 1388, 3230, 1400, 2921, 1533, 2761, 1754, 2700, 1802, 2668, 1924, 2721, 2154, 2741, 2268.0007, 2816.6812, 2392, 2899, 2558, 3034, 2822, 3097, 3085, 2964, 3188, 2886, 3254, 2698, 3183, 2469, 3078, 2419, 2797, 2362, 2558, 2340, 2436, 2443, 2293, 2568, 2055, 2533, 1997, 2534, 1970, 2558, 1919, 2572, 1844, 2493, 1621, 2545, 1442, 2347, 1137, 2220, 1050.6213, 2261.6794, 994, 2289, 874, 2262, 899, 2194, 950, 2116, 926, 2032, 967, 1960, 1016, 1885, 972, 1769, 803, 1766, 678, 1799, 610, 1851, 500, 1829, 434, 1776, 457, 1736, 520, 1716, 570, 1676, 605, 1625, 688, 1655, 861, 1673, 998, 1641, 1165, 1609, 1321, 1582, 1449, 1590, 1552, 1578, 1633, 1560, 1668, 1562, 1766, 1605, 1889, 1612, 1994, 1592, 2019, 1537, 1863, 1469, 1801, 1495, 1680, 1467, 1591, 1459, 1549, 1472, 1542, 1459, 1329, 1492, 1135, 1482, 1015, 1497, 1014.4601, 1484.4677, 1057, 1253, 1070, 1202, 1093, 1213, 1307, 1099, 1321, 1018, 1362, 1004, 1414, 1112, 1488, 1101, 1563, 1188, 1745, 1281, 1835, 1228, 1939, 1138, 1992, 1107, 2123, 1089, 2361, 1085, 2343, 986, 2238, 915, 2124, 845, 2078, 738, 2021, 659, 1845, 637, 1753.1099, 635.9189, 1638, 656, 1557, 681, 1461, 746, 1334, 822, 1154.5947, 890.1308, 941, 931, 772, 950, 565, 920, 512, 923, 495, 962, 436, 933, 343, 907, 208, 890, 153, 879, 117, 831, 138, 801, 185, 784, 216, 756, 154, 741, 131, 665, 116, 603, 123, 507, 174, 416, 169, 355, 329, 332, 534, 298, 558, 248, 564, 180, 520, 111, 516, -21, 339, -81, 271, -126, 247, -217, 276, -248)
+
+[node name="Area2D" type="Area2D" parent="Walls/StaticBody2D" unique_id=1236160829]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D/Area2D" unique_id=1004989658]
+polygon = PackedVector2Array(377, -291, 852, -322, 1131, -326, 1760, -193, 2120, -292, 4832, -368, 4692, 64, 4552, 553, 4427, 888, 5097, 1307, 6730, 1684, 6563, 3149, 6464, 3381, 5948, 4037, 5766, 5419, 5697, 6452, 5124, 7485, 3351, 8364, 2374, 8643, -467, 7132, -1438, 7336, -3337, 7936, -3836, 6896, -3281, 6987, -2179, 6993, -1921, 6778, -1825, 6554, -1564, 6381, -952, 5884, -766, 5161, -397, 5178, 16, 5269, 436, 5221, 904, 5339, 1290, 5349, 1461, 5520, 1627, 5738, 1928, 5921, 2217, 5881, 2475, 5768, 2556, 5434, 2561, 5221, 2433, 5108, 2099, 5003, 1755, 5036, 1511, 5111, 1303, 5116, 916, 5109, 367, 5033, -105, 5013, -564, 4913, -999, 4740, -999, 4569, -959, 4419, -828, 4191, -964, 3967, -923, 3711, -778, 3405, -552, 3270, -123, 3250, -90, 3155, 51, 3130, 161, 3187, 241, 3331, 447, 3348, 595, 3303, 906, 3338, 1388, 3230, 1400, 2921, 1533, 2761, 1754, 2700, 1802, 2668, 1924, 2721, 2154, 2741, 2268.0007, 2816.6812, 2392, 2899, 2558, 3034, 2822, 3097, 3085, 2964, 3188, 2886, 3254, 2698, 3183, 2469, 3078, 2419, 2797, 2362, 2558, 2340, 2436, 2443, 2293, 2568, 2055, 2533, 1997, 2534, 1970, 2558, 1919, 2572, 1844, 2493, 1621, 2545, 1442, 2347, 1137, 2220, 1050.6213, 2261.6794, 994, 2289, 874, 2262, 899, 2194, 950, 2116, 926, 2032, 967, 1960, 1016, 1885, 972, 1769, 803, 1766, 678, 1799, 610, 1851, 500, 1829, 434, 1776, 457, 1736, 520, 1716, 570, 1676, 605, 1625, 688, 1655, 861, 1673, 998, 1641, 1165, 1609, 1321, 1582, 1449, 1590, 1552, 1578, 1633, 1560, 1668, 1562, 1759, 1593, 1889, 1612, 1994, 1592, 2019, 1537, 1863, 1469, 1814, 1492, 1680, 1467, 1591, 1459, 1549, 1472, 1542, 1459, 1329, 1492, 1135, 1482, 1015, 1497, 1014.4601, 1484.4677, 1057, 1253, 1070, 1202, 1093, 1213, 1307, 1099, 1321, 1018, 1362, 1004, 1414, 1112, 1488, 1101, 1563, 1188, 1745, 1281, 1835, 1228, 1939, 1138, 1992, 1107, 2123, 1089, 2361, 1085, 2343, 986, 2238, 915, 2124, 845, 2078, 738, 2021, 659, 1845, 637, 1753.1099, 635.9189, 1638, 656, 1557, 681, 1461, 746, 1334, 822, 1154.5947, 890.1308, 941, 931, 772, 950, 565, 920, 512, 923, 495, 962, 436, 933, 343, 907, 208, 890, 153, 879, 117, 831, 138, 801, 185, 784, 216, 756, 154, 741, 131, 665, 116, 603, 123, 507, 174, 416, 169, 355, 329, 332, 534, 298, 558, 248, 564, 180, 520, 111, 516, -21, 339, -81, 271, -126, 247, -217, 276, -248)
+script = ExtResource("9_i1cje")
+
+[node name="Timer" type="Timer" parent="Walls" unique_id=1679887360]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=724334795]
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1562076916]
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+value = 100.0
+texture_under = ExtResource("8_w4qqe")
+texture_progress = ExtResource("9_d4m0j")
+script = ExtResource("10_w4qqe")
+
+[node name="health" type="Sprite2D" parent="CanvasLayer" unique_id=1957790689]
+position = Vector2(23, 35)
+scale = Vector2(0.26670507, 0.2667051)
+texture = ExtResource("11_d4m0j")
+
+[node name="OxygenBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1317132797]
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 104.0
+offset_bottom = 100.0
+scale = Vector2(3, 3)
+value = 100.0
+texture_under = ExtResource("8_w4qqe")
+texture_progress = ExtResource("14_66kf3")
+script = ExtResource("15_aui1i")
+
+[node name="oxygen" type="Sprite2D" parent="CanvasLayer" unique_id=467580702]
+position = Vector2(24, 71)
+scale = Vector2(0.22611113, 0.22611113)
+texture = ExtResource("16_h52ud")
+
+[node name="PowerBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=607528176]
+offset_left = 40.0
+offset_top = 100.0
+offset_right = 80.0
+offset_bottom = 140.0
+scale = Vector2(3, 3)
+value = 100.0
+texture_under = ExtResource("8_w4qqe")
+texture_progress = ExtResource("16_gh3f3")
+script = ExtResource("17_h52ud")
+
+[node name="power" type="Sprite2D" parent="CanvasLayer" unique_id=2037350251]
+position = Vector2(25, 116.00001)
+scale = Vector2(0.07699995, 0.07699995)
+texture = ExtResource("19_usena")
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1748800700 instance=ExtResource("20_e07w8")]
+
+[node name="WinScreen" parent="CanvasLayer" unique_id=1430056832 instance=ExtResource("21_haldx")]
+script = ExtResource("22_ci3db")
+
+[node name="OxygenPack" type="AnimatedSprite2D" parent="." unique_id=377244325]
+position = Vector2(1745, 1231)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gc1g1")
+script = ExtResource("21_gc1g1")
+
+[node name="OxygenPack1" type="Area2D" parent="OxygenPack" unique_id=425103654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OxygenPack/OxygenPack1" unique_id=231970619]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_e2420")
+
+[node name="OxygenPack2" type="AnimatedSprite2D" parent="." unique_id=1615925399]
+position = Vector2(-2409, 4952)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gc1g1")
+script = ExtResource("21_gc1g1")
+
+[node name="OxygenPack2" type="Area2D" parent="OxygenPack2" unique_id=542139600]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OxygenPack2/OxygenPack2" unique_id=422758467]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_e2420")
+
+[node name="PowerPack1" type="Sprite2D" parent="." unique_id=2146438499]
+position = Vector2(-328, 2743)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_pvdr1")
+script = ExtResource("23_e07w8")
+
+[node name="PowerPack1" type="Area2D" parent="PowerPack1" unique_id=1811248890]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerPack1/PowerPack1" unique_id=1201404460]
+position = Vector2(4, -8)
+shape = SubResource("RectangleShape2D_e1m76")
+
+[node name="PowerPack2" type="Sprite2D" parent="." unique_id=1231855095]
+position = Vector2(-328, 2743)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_pvdr1")
+script = ExtResource("23_e07w8")
+
+[node name="PowerPack2" type="Area2D" parent="PowerPack2" unique_id=1717923070]
+position = Vector2(5376, -412)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerPack2/PowerPack2" unique_id=2136355349]
+position = Vector2(4, -8)
+shape = SubResource("RectangleShape2D_e1m76")
+
+[node name="WinningArea" type="Area2D" parent="." unique_id=491792210]
+position = Vector2(0, -257)
+script = ExtResource("25_e1m76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinningArea" unique_id=702795051]
+position = Vector2(0, 22.5)
+shape = SubResource("RectangleShape2D_wk0ko")
+
+[connection signal="OxygenCollected" from="PlayerCharacter" to="OxygenPack" method="_on_player_character_oxygen_collected"]
+[connection signal="PowerCollected" from="PlayerCharacter" to="PowerPack1" method="_on_player_character_power_collected"]
+[connection signal="allBeacons" from="PlayerCharacter" to="WinningArea" method="_on_player_character_all_beacons"]
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon1Sprite" method="_on_player_character_beacon_collected"]
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon2Sprite" method="_on_player_character_beacon_collected"]
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon2Sprite3" method="_on_player_character_beacon_collected"]
+[connection signal="healthChanged" from="PlayerCharacter" to="CanvasLayer/HealthBar" method="_on_player_character_health_changed"]
+[connection signal="timeout" from="PlayerCharacter/OxygenTimer" to="PlayerCharacter" method="_on_oxygen_timer_timeout"]
+[connection signal="timeout" from="PlayerCharacter/OxygenTimer" to="CanvasLayer/OxygenBar" method="_on_oxygen_timer_timeout"]
+[connection signal="timeout" from="PlayerCharacter/OxygenTimer" to="CanvasLayer/PowerBar" method="_on_oxygen_timer_timeout"]
+[connection signal="timeout" from="PlayerCharacter/OneTimeTimer" to="PlayerCharacter" method="_on_one_time_timer_timeout"]
+[connection signal="body_entered" from="Beacon1Sprite/Beacon1" to="PlayerCharacter" method="beacon1Collision"]
+[connection signal="body_exited" from="Beacon1Sprite/Beacon1" to="PlayerCharacter" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Beacon2Sprite/Beacon2" to="PlayerCharacter" method="beacon_2_collision"]
+[connection signal="body_exited" from="Beacon2Sprite/Beacon2" to="PlayerCharacter" method="beacon2Exit"]
+[connection signal="body_entered" from="Beacon2Sprite3/Beacon3" to="PlayerCharacter" method="beacon3Collision"]
+[connection signal="body_exited" from="Beacon2Sprite3/Beacon3" to="PlayerCharacter" method="beacon3Exit"]
+[connection signal="body_entered" from="Walls/Wall1/Area2D" to="PlayerCharacter" method="wallCollision"]
+[connection signal="body_entered" from="Walls/StaticBody2D/Area2D" to="PlayerCharacter" method="wallCollision"]
+[connection signal="timeout" from="Walls/Timer" to="Walls/Wall1/Area2D/CollisionPolygon2D2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Walls/Timer" to="Walls/StaticBody2D/Area2D/CollisionPolygon2D2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="OxygenPack/OxygenPack1" to="PlayerCharacter" method="OxygenPack1"]
+[connection signal="body_exited" from="OxygenPack/OxygenPack1" to="PlayerCharacter" method="leavingOxygenPack1"]
+[connection signal="body_entered" from="OxygenPack2/OxygenPack2" to="PlayerCharacter" method="oxygenPack2Collision"]
+[connection signal="body_exited" from="OxygenPack2/OxygenPack2" to="PlayerCharacter" method="leavingOxygenPack2"]
+[connection signal="body_entered" from="PowerPack1/PowerPack1" to="PlayerCharacter" method="Powerpack1Collision"]
+[connection signal="body_exited" from="PowerPack1/PowerPack1" to="PlayerCharacter" method="powerPackLeft"]
+[connection signal="body_entered" from="PowerPack2/PowerPack2" to="PlayerCharacter" method="powerPack2Collision"]
+[connection signal="body_exited" from="PowerPack2/PowerPack2" to="PlayerCharacter" method="powerPackLeft"]
+[connection signal="body_entered" from="WinningArea" to="PlayerCharacter" method="_on_winning_area_body_entered"]

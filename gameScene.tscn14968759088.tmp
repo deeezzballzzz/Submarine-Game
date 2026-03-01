@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://cdfo0i3mlh0k5"]
+
+[ext_resource type="Script" uid="uid://b7hgvttsidhjl" path="res://Scripts/movement.gd" id="1_7o08m"]
+[ext_resource type="Texture2D" uid="uid://clk7ldc1a0x4j" path="res://Assets/content__1_-removebg-preview.webp" id="1_snd1y"]
+[ext_resource type="Texture2D" uid="uid://bq47qh4jxjef2" path="res://Assets/deactivatedCrystal-removebg-preview (1).png" id="3_4t2pl"]
+[ext_resource type="Texture2D" uid="uid://btqtjnwl4bbno" path="res://Assets/a247640a-f851-4384-b1c0-b86acf0c963c__2_-removebg-preview.webp" id="3_ybgqn"]
+[ext_resource type="Script" uid="uid://ckb4isoi3cn61" path="res://Scripts/checkIfConnected.gd" id="4_ybgqn"]
+[ext_resource type="Script" uid="uid://bfvlqnjda6n5" path="res://Scripts/beacon2CheckIfConnected.gd" id="6_ijlju"]
+[ext_resource type="Script" uid="uid://d221jsctv175" path="res://Scripts/beacon3Collision.gd" id="7_vdwas"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o08m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_snd1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k15wb"]
+size = Vector2(156.5, 54)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7o08m"]
+load_path = "res://.godot/imported/SjD2HwAAAAZJREFUAwDBq0O9wzqDewAAAABJRU5ErkJggg.webp-4736a1d0279d18cd03d901fefbf39f11.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7o08m"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+angle_min = 6.100011
+angle_max = 98.40001
+inherit_velocity_ratio = -0.8
+direction = Vector3(0, -1000, 0)
+spread = 180.0
+initial_velocity_min = -9.059999
+initial_velocity_max = -9.059999
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(-50, -98, 0)
+scale_min = 0.01
+scale_max = 0.03
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijlju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4t2pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ybgqn")
+}],
+"loop": true,
+"name": &"beaconAppearance",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2aj80"]
+size = Vector2(153.96552, 185.00003)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vdwas"]
+
+[node name="Node2D" type="Node2D" unique_id=1958718418]
+metadata/_edit_horizontal_guides_ = [-62.0]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=1615366822]
+script = ExtResource("1_7o08m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter" unique_id=1550079897]
+scale = Vector2(0.38545498, 0.38545495)
+sprite_frames = SubResource("SpriteFrames_7o08m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter" unique_id=831579834]
+shape = SubResource("RectangleShape2D_k15wb")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerCharacter" unique_id=670168903]
+position = Vector2(-100, 0)
+amount = 15
+texture = SubResource("CompressedTexture2D_7o08m")
+process_material = SubResource("ParticleProcessMaterial_7o08m")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1788273109]
+
+[node name="Beacon1Sprite" type="AnimatedSprite2D" parent="." unique_id=303375276]
+position = Vector2(226, 278)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("4_ybgqn")
+
+[node name="Beacon1" type="Area2D" parent="Beacon1Sprite" unique_id=1212626556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon1Sprite/Beacon1" unique_id=684067380]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Beacon2Sprite" type="AnimatedSprite2D" parent="." unique_id=183671025]
+position = Vector2(-221, 217)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("6_ijlju")
+
+[node name="Beacon2" type="Area2D" parent="Beacon2Sprite" unique_id=104780513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon2Sprite/Beacon2" unique_id=1869354589]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Beacon2Sprite3" type="AnimatedSprite2D" parent="." unique_id=470473006]
+position = Vector2(282, -20)
+scale = Vector2(0.48333332, 0.48333332)
+sprite_frames = SubResource("SpriteFrames_ijlju")
+animation = &"beaconAppearance"
+script = ExtResource("7_vdwas")
+
+[node name="Beacon3" type="Area2D" parent="Beacon2Sprite3" unique_id=1272566570]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beacon2Sprite3/Beacon3" unique_id=10122960]
+position = Vector2(-2.0690136, 28.965563)
+shape = SubResource("RectangleShape2D_2aj80")
+
+[node name="Walls" type="Node2D" parent="." unique_id=210509910]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=445662986]
+position = Vector2(0, -300)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=1096339655]
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_vdwas")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls" unique_id=1366466241]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D2" unique_id=2080619014]
+polygon = PackedVector2Array(-536, -306, -484, -210, -508, -119, -449, 52, -471, 139, -463, 253, -424, 337, -232, 355, -229, 381, -201, 423, -259, 439, -345, 442, -422, 449, -491, 467, -1131, 446, -1141, -326)
+
+[node name="Area2D" type="Area2D" parent="Walls/StaticBody2D2" unique_id=1466264258]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D2/Area2D" unique_id=392689328]
+polygon = PackedVector2Array(-536, -306, -484, -210, -508, -119, -449, 52, -471, 139, -463, 253, -424, 337, -232, 355, -229, 381, -201, 423, -259, 439, -345, 442, -422, 449, -491, 467, -1131, 446, -1141, -326)
+
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon1Sprite" method="_on_player_character_beacon_collected"]
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon2Sprite" method="_on_player_character_beacon_collected"]
+[connection signal="beaconCollected" from="PlayerCharacter" to="Beacon2Sprite3" method="_on_player_character_beacon_collected"]
+[connection signal="body_entered" from="Beacon1Sprite/Beacon1" to="PlayerCharacter" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Beacon1Sprite/Beacon1" to="PlayerCharacter" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Beacon2Sprite/Beacon2" to="PlayerCharacter" method="beacon_2_collision"]
+[connection signal="body_exited" from="Beacon2Sprite/Beacon2" to="PlayerCharacter" method="beacon2Exit"]
+[connection signal="body_entered" from="Beacon2Sprite3/Beacon3" to="PlayerCharacter" method="beacon3Collision"]
+[connection signal="body_exited" from="Beacon2Sprite3/Beacon3" to="PlayerCharacter" method="beacon3Exit"]
+[connection signal="body_entered" from="Walls/StaticBody2D2/Area2D" to="PlayerCharacter" method="wallCollision"]
